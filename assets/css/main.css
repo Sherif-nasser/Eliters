@@ -7,11 +7,17 @@
     rgba(0, 80, 157, 1) 0%,
     rgba(0, 41, 107, 1) 100%
   );
+  --main-linear3: linear-gradient(
+    -90deg,
+    rgba(0, 80, 157, 1) 0%,
+    rgba(0, 41, 107, 1) 100%
+  );
   --secondary-linear: linear-gradient(to right, #1d9bf0, #11598a);
   /* colors */
   --main-color: #1e2e45;
   --main-color2: #00509d;
   --blue: #1d9bf0;
+  --yellow: #fdc500;
   --darker-blue: #2679bc;
   --stroke-color2: #bfd8ff;
   --addition0: #fcfdff;
@@ -113,12 +119,17 @@
 .bg-linear {
   background-image: var(--main-linear) !important;
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 100% 100%;
 }
 .bg-linear2 {
   background-image: var(--main-linear2) !important;
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 100% 100%;
+}
+.bg-linear3 {
+  background-image: var(--main-linear3) !important;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 .bg-blue {
   background-color: var(--blue) !important;
@@ -164,6 +175,9 @@
 /* border-color */
 .bc-blue {
   border-color: var(--blue) !important;
+}
+.bc-yellow {
+  border-color: var(--yellow) !important;
 }
 .bc-addition2 {
   border-color: var(--addition2) !important;
@@ -317,7 +331,6 @@ header {
   background-size: 100% 100%;
 }
 header nav {
-
   /* background: url(../../assets/images/sheet-1.png); */
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -366,7 +379,7 @@ footer {
   color: white;
 }
 footer .container-fluid {
-  background: url(../../assets/images/Shape-1.png);
+  background: url(../../assets/images/footer.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -767,8 +780,8 @@ footer .container-fluid ul {
 ----------------------------------*/
 #pricingHero {
   background-image: url(../../assets/images/priceplanHero.png);
-  background-position: right center;
-  background-size: auto 100%;
+  background-position: center center;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 #pricingFAQ .header {
@@ -797,7 +810,8 @@ footer .container-fluid ul {
 ----------------------------------*/
 #priceDetails {
   background-image: url(../../assets/images/priceplanHero.png);
-  background-position: right top;
+  background-position: center center;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 #priceDetails .accordion button.accordion-button {
@@ -819,7 +833,7 @@ footer .container-fluid ul {
 #Freelance page
 ----------------------------------*/
 #freelanceHero {
-  background: url(../../assets/images/freelancehero.png);
+  background: url(../../assets/images/freelancehero.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -924,16 +938,17 @@ footer .container-fluid ul {
 #credit page
 ----------------------------------*/
 #wallet {
-  background: url(../../assets/images/priceplanHero.png);
+  background-image: url(../../assets/images/priceplanHero.png);
+  background-position: center center;
+  background-size: cover;
   background-repeat: no-repeat;
-  background-position: right top;
 }
 /*----------------------------------
 #laws page
 ----------------------------------*/
 #lawDetailsHero,
 #lawHero {
-  background-image: url(../../assets/images/laws.png);
+  background-image: url(../../assets/images/laws.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -960,6 +975,35 @@ footer .container-fluid ul {
   background: url(../../assets/images/HomeHero.png);
   background-repeat: no-repeat;
   background-position: bottom center;
+  background-size: cover;
+}
+#HomeHero h2 {
+  position: relative;
+}
+#HomeHero h2::after,
+#HomeHero h2::before {
+  position: absolute;
+  content: "";
+  width: 25px;
+  height: 25px;
+}
+#HomeHero h2::after {
+  top: 0;
+  right: 0;
+  border-right: 2px solid var(--blue);
+  border-top: 2px solid var(--blue);
+}
+#HomeHero h2::before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  border-left: 2px solid var(--blue);
+  border-bottom: 2px solid var(--blue);
+}
+#HeroSub {
+  background-image: url(../images/job.png);
+  background-position: left center;
   background-size: cover;
 }
 #HeroSub .swiper-layer {
@@ -1054,14 +1098,27 @@ footer .container-fluid ul {
   left: 50%;
   transform: translatex(-50%);
 }
-#HomeNeeds .swiper-slide:not(.swiper-slide-active) {
-  opacity: 0.7;
+#HomeNeeds .mySwiper .swiper-pagination-bullet {
+  width: 16px !important;
+  height: 4px !important;
+  border-radius: 0px !important;
 }
-/* #HomeNeeds .swiper-slide:not(.swiper-slide-visible) {
+#HomeNeeds .swiper-slide:not(.swiper-slide-active) {
+  opacity: 0.8;
+  transform: scale(0.9);
+}
+/* #HomeNeeds .swiper-slide:not(.swiper-slide-active),
+#HomeNeeds .swiper-slide:not(.swiper-slide-next),
+#HomeNeeds .swiper-slide:not(.swiper-slide-prev) {
   opacity: 0;
 } */
 
-
+#HomeNeeds .swiper-slide-active {
+  z-index: 9999999;
+}
+#HomeNeeds .swiper-slide .card {
+  width: 100%;
+}
 #HomeVideos h2 {
   position: relative;
 }
@@ -1091,8 +1148,13 @@ footer .container-fluid ul {
   left: 50%;
   transform: translatex(-50%);
 }
+#HomeHelp {
+  background-image: url(../images/contact-our-team.png);
+  background-size: cover;
+  background-position: left center;
+}
 #HomeHelp .col-lg-9 {
-  border-right: 3px solid black;
+  border-right: 3px solid white;
 }
 #HomeComplains {
   background: url(../../assets/images/complains.png);
@@ -1303,9 +1365,10 @@ footer .container-fluid ul {
 #Create cv page
 ----------------------------------*/
 #cvPersonalInfo {
-  background: url(../../assets/images/priceplanHero.png);
+  background-image: url(../images/priceplanHero.png);
+  background-position: top center;
+  background-size: 100% auto;
   background-repeat: no-repeat;
-  background-position: top right;
 }
 #cvSkillsInfo ul {
   list-style-type: none;
@@ -1841,7 +1904,7 @@ ul.tags input:focus-visible {
   }
   #HomeHelp .col-lg-9 {
     border-right: none;
-    border-top: 3px solid black;
+    border-top: 3px solid white;
   }
   .modal-dialog {
     max-width: 90%;
